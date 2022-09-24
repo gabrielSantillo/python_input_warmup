@@ -2,8 +2,8 @@ thoughts = []
 
 
 def thoughts_function():
-    selection = input("What is your thought?\n")
-    thoughts.append(selection)
+    thought = input("What is your thought?\n")
+    thoughts.append(thought)
     return thoughts
 
 
@@ -35,9 +35,12 @@ def selection_function():
 
     return True
 
-call_thoughts_function = selection_function()
+def call_thoughts_function():
+    call_thoughts_function = selection_function()
 
-while call_thoughts_function:
-    continue_thoughts_function = selection_function()
-    if not continue_thoughts_function:
-        break
+    while call_thoughts_function:
+        continue_thoughts_function = selection_function()
+        if not continue_thoughts_function:
+            break
+
+call_thoughts_function()
