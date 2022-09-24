@@ -8,8 +8,11 @@ def thoughts_function():
 
 
 def print_thoughts():
-    for thought in thoughts:
-        print(thought)
+    if (len(thoughts) == 0):
+        print("You don't have any thoughts yet.")
+    else:
+        for thought in thoughts:
+            print(thought)
 
 
 def selection_function():
@@ -21,13 +24,20 @@ def selection_function():
 
     if (selection == "1"):
         thoughts_function()
-    elif(selection == "2"):
+    elif (selection == "2"):
         print_thoughts()
-    else:
+    elif (selection == "3"):
         print("Goodbye.")
-        return
+        return False
+    else:
+        print("You should have typed only numbers between 1, 2 or 3. Please try again.")
+        selection_function()
 
+    return True
 
+call_thoughts_function = selection_function()
 
-while True:
-    selection_function()
+while call_thoughts_function:
+    continue_thoughts_function = selection_function()
+    if not continue_thoughts_function:
+        break
